@@ -1,19 +1,13 @@
 import React, { Component } from "react";
-import logo from "./logo.svg";
-import "./App.css";
 import { Table } from "reactstrap";
 import { connect } from "react-redux";
 
-class App extends Component {
+class TodoList extends Component {
   render() {
     const todos = this.props.todos;
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Simple todo</h1>
-        </header>
+      <div>
         <Table>
           <thead>
             <tr>
@@ -51,4 +45,4 @@ const mapStateToProps = ({ todoReducer }) => {
   return { todos };
 };
 
-export default connect(mapStateToProps, {})(App);
+export default connect(mapStateToProps, {})(TodoList);

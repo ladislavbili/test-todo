@@ -1,11 +1,11 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
 import ReduxThunk from "redux-thunk";
 
-import reducer1 from "./reducers/reducer1";
+import todoReducer from "./reducers/todoReducer";
 import statusReducer from "./reducers/statusReducer";
 
 const reducers = combineReducers({
-  todoReducer: reducer1,
+  todoReducer: todoReducer,
   statusReducer
 });
 

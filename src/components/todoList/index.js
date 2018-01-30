@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 
 import { getTodos, startLoadingTodos } from "../../redux/actions";
-import TodoList from "./App";
+import TodoList from "./todoList";
 
 class TodoListLoader extends Component {
   //before loader page is loaded, we send requests to get all available units
