@@ -1,15 +1,30 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
+import {
+  ListGroup,
+  ListGroupItem,
+  Button,
+  Form,
+  FormGroup,
+  Label,
+  Input,
+  FormText,
+  Dropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem
+} from "reactstrap";
 import { addTodo } from "../../redux/actions";
 
 class Add extends Component {
   constructor(props) {
     super(props);
+    this.toggle = this.toggle.bind(this);
     this.state = {
       name: "",
       author: "",
-      status: this.props.statuses[0].id
+      status: this.props.statuses[0].id,
+      dropdownOpen: false
     };
   }
   submit() {
@@ -22,6 +37,12 @@ class Add extends Component {
     });
     this.props.history.goBack();
   }
+  toggle() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  }
+
   render() {
     return (
       <div style={{ maxWidth: 700, margin: "auto" }}>
@@ -54,6 +75,33 @@ class Add extends Component {
             ))}
           </Input>
         </FormGroup>
+        <FormGroup>
+          <ListGroup>
+            {this.props.tags.map(tag => (
+              <ListGroupItem
+                style={{ backgroundColor: tag.color, color: "white" }}
+                key={tag.id}
+              >
+                {tag.title}
+              </ListGroupItem>
+            ))}
+          </ListGroup>
+        </FormGroup>
+        <FormGroup>
+          <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+            <DropdownToggle caret>Dropdown</DropdownToggle>
+            <DropdownMenu>
+              {this.props.tags.map(tag => (
+                <DropdownItem
+                  style={{ backgroundColor: tag.color, color: "white" }}
+                  key={tag.id}
+                >
+                  {tag.title}
+                </DropdownItem>
+              ))}
+            </DropdownMenu>
+          </Dropdown>
+        </FormGroup>
 
         <button onClick={this.submit.bind(this)}>Save</button>
       </div>
@@ -61,9 +109,11 @@ class Add extends Component {
   }
 }
 //all below is just redux storage
-const mapStateToProps = ({ statusReducer }) => {
+const mapStateToProps = ({ statusReducer, tagReducer }) => {
   const { statuses } = statusReducer;
-  return { statuses };
+  const { tags } = tagReducer;
+
+  return { statuses, tags };
 };
 
 export default connect(mapStateToProps, { addTodo })(Add);

@@ -8,3 +8,6 @@ export const DELETE_TODO = "DELETE_TODO";
 
 export const START_LOADING_STATUSES = "START_LOADING_STATUSES";
 export const SET_STATUSES = "SET_STATUSES";
+
+export const START_LOADING_TAGS = "START_LOADING_TAGS";
+export const SET_TAGS = "SET_TAGS";

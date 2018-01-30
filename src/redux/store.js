@@ -3,10 +3,12 @@ import ReduxThunk from "redux-thunk";
 
 import todoReducer from "./reducers/todoReducer";
 import statusReducer from "./reducers/statusReducer";
+import tagReducer from "./reducers/tagReducer";
 
 const reducers = combineReducers({
   todoReducer: todoReducer,
-  statusReducer
+  statusReducer,
+  tagReducer
 });
 
 const enhancers = compose(applyMiddleware(ReduxThunk));

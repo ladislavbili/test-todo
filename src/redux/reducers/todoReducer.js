@@ -34,8 +34,10 @@ export default function firstReducer(state = initialState, action) {
     }
     case DELETE_TODO: {
       let newTodos = [...state.todos];
-      newTodos[newTodos.findIndex(todo => todo.id === action.newTodo.id)] =
-        action.newTodo;
+      newTodos.splice(
+        newTodos[newTodos.findIndex(todo => todo.id == action.id)],
+        1
+      );
       return { ...state, todos: newTodos };
     }
     default:

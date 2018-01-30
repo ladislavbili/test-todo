@@ -33,6 +33,7 @@ class TodoEdit extends Component {
   }
 
   delete() {
+    console.log(this.props.todo.id);
     this.props.deleteTodo(this.props.todo.id);
     this.props.history.goBack();
   }
@@ -72,18 +73,28 @@ class TodoEdit extends Component {
             ))}
           </Input>
         </FormGroup>
-        <button onClick={this.submit.bind(this)}>Save</button>
-        <button onClick={this.delete.bind(this)}>Delete</button>
+        <Button
+          style={{ marginRight: 20 }}
+          color="primary"
+          onClick={this.submit.bind(this)}
+        >
+          Save
+        </Button>
+        <Button color="danger" onClick={this.delete.bind(this)}>
+          Delete
+        </Button>
       </div>
     );
   }
 }
 
 // All below is just redux storage
-const mapStateToProps = ({ todoReducer, statusReducer }) => {
+const mapStateToProps = ({ todoReducer, statusReducer, tagReducer }) => {
   const { todo } = todoReducer;
   const { statuses } = statusReducer;
-  return { todo, statuses };
+  const { tags } = tagReducer;
+  console.log(tags);
+  return { todo, statuses, tags };
 };
 
 export default connect(mapStateToProps, { editTodo, deleteTodo })(TodoEdit);

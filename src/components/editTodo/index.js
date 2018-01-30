@@ -5,7 +5,9 @@ import {
   getTodo,
   startLoadingTodo,
   getStatuses,
-  startLoadingStatuses
+  startLoadingStatuses,
+  getTags,
+  startLoadingTags
 } from "../../redux/actions";
 import TodoEdit from "./todoEdit";
 
@@ -15,6 +17,7 @@ class TodoEditLoader extends Component {
     this.props.startLoadingStatuses(); // first it sets, that unit hasnt been loaded
     this.props.getTodo(parseInt(this.props.match.params.id, 10)); //send request for download and storing of the units data
     this.props.getStatuses();
+    this.props.getTags();
   }
   render() {
     if (!this.props.loadedTodo || !this.props.statusesLoaded) {
@@ -26,15 +29,18 @@ class TodoEditLoader extends Component {
 }
 
 //All below is redux information storage
-const mapStateToProps = ({ todoReducer, statusReducer }) => {
+const mapStateToProps = ({ todoReducer, statusReducer, tagReducer }) => {
   const { loadedTodo } = todoReducer;
   const { statusesLoaded } = statusReducer;
-  return { loadedTodo, statusesLoaded };
+  const { tagsLoaded } = tagReducer;
+  return { loadedTodo, statusesLoaded, tagsLoaded };
 };
 
 export default connect(mapStateToProps, {
   getTodo,
   startLoadingTodo,
   getStatuses,
-  startLoadingStatuses
+  startLoadingStatuses,
+  getTags,
+  startLoadingTags
 })(TodoEditLoader);

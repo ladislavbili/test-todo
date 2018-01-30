@@ -18,49 +18,22 @@
   },
   "todos": [
     {
-      "id": 1,
-      "title": "task 1ss",
-      "author": "bsusta",
+      "title": "test",
       "status": {
         "id": 1,
         "title": "NEW"
-      }
-    },
-    {
-      "title": "novz so statusoma",
-      "status": {
-        "id": 2,
-        "title": "OPEN"
       },
-      "author": "ja",
+      "author": "test",
       "id": 2
     },
     {
-      "title": "dffdsfddsfdfa",
+      "title": "wewe",
       "status": {
-        "id": 2,
-        "title": "OPEN"
+        "id": 1,
+        "title": "NEW"
       },
-      "author": "dsds",
+      "author": "weqwe",
       "id": 3
-    },
-    {
-      "title": "sfddaa",
-      "status": {
-        "id": 1,
-        "title": "NEW"
-      },
-      "author": "dfaaaaa",
-      "id": 4
-    },
-    {
-      "title": "dsf",
-      "status": {
-        "id": 1,
-        "title": "NEW"
-      },
-      "author": "sdf",
-      "id": 5
     }
   ],
   "statuses": [
@@ -71,6 +44,28 @@
     {
       "id": 2,
       "title": "OPEN"
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "title": "tag 1",
+      "color": "#590d29"
+    },
+    {
+      "id": 2,
+      "title": "tag 2",
+      "color": "#eec972"
+    },
+    {
+      "id": 3,
+      "title": "tag 2",
+      "color": "#e9d3d3"
+    },
+    {
+      "id": 4,
+      "title": "tag 2",
+      "color": "#ced498"
     }
   ]
 }

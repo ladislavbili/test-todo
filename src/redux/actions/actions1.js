@@ -4,7 +4,8 @@ import {
   ADD_TODO,
   START_LOADING_TODO,
   SET_TODO,
-  EDIT_TODO
+  EDIT_TODO,
+  DELETE_TODO
 } from "../types";
 
 const URL = "http://localhost:3000/todos";
@@ -111,24 +112,19 @@ export const editTodo = (todo, id) => {
   };
 };
 
-export const deleteTodo = (todo, id) => {
+export const deleteTodo = id => {
+  console.log(id);
   return dispatch => {
     fetch(URL + "/" + id, {
-      method: "PATCH",
+      method: "DELETE",
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json"
-      },
-      body: JSON.stringify(todo)
+      }
     })
       .then(response => {
         if (response.ok) {
-          response
-            .json()
-            .then(decodedResponse => {
-              dispatch({ type: EDIT_TODO, newTodo: decodedResponse });
-            })
-            .catch(error => console.log(error));
+          dispatch({ type: DELETE_TODO, id });
         } else {
           throw new Error("Something went wrong ...");
         }
