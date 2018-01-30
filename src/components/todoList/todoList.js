@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Table } from "reactstrap";
 import { connect } from "react-redux";
+import "../../App.css";
 
 class TodoList extends Component {
   render() {
@@ -22,6 +23,7 @@ class TodoList extends Component {
               <tr
                 key={todo.id}
                 onClick={() => this.props.history.push("edit/" + todo.id)}
+                className="link"
               >
                 <th scope="row">{todo.id}</th>
                 <td> {todo.title}</td>

@@ -110,3 +110,29 @@ export const editTodo = (todo, id) => {
       .catch(error => console.log(error));
   };
 };
+
+export const deleteTodo = (todo, id) => {
+  return dispatch => {
+    fetch(URL + "/" + id, {
+      method: "PATCH",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(todo)
+    })
+      .then(response => {
+        if (response.ok) {
+          response
+            .json()
+            .then(decodedResponse => {
+              dispatch({ type: EDIT_TODO, newTodo: decodedResponse });
+            })
+            .catch(error => console.log(error));
+        } else {
+          throw new Error("Something went wrong ...");
+        }
+      })
+      .catch(error => console.log(error));
+  };
+};

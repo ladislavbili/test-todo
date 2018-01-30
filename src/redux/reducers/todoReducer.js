@@ -4,7 +4,8 @@ import {
   ADD_TODO,
   SET_TODO,
   START_LOADING_TODO,
-  EDIT_TODO
+  EDIT_TODO,
+  DELETE_TODO
 } from "../types";
 const initialState = {
   todos: [],
@@ -26,6 +27,12 @@ export default function firstReducer(state = initialState, action) {
     case ADD_TODO:
       return { ...state, todos: [action.newTodo, ...state.todos] };
     case EDIT_TODO: {
+      let newTodos = [...state.todos];
+      newTodos[newTodos.findIndex(todo => todo.id === action.newTodo.id)] =
+        action.newTodo;
+      return { ...state, todos: newTodos };
+    }
+    case DELETE_TODO: {
       let newTodos = [...state.todos];
       newTodos[newTodos.findIndex(todo => todo.id === action.newTodo.id)] =
         action.newTodo;

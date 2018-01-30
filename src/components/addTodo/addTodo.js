@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
+import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import { addTodo } from "../../redux/actions";
 
 class Add extends Component {
@@ -24,29 +24,36 @@ class Add extends Component {
   }
   render() {
     return (
-      <div>
-        <h1>Add to todo</h1>
-        <input
-          placeholder="Name"
-          value={this.state.name}
-          onChange={e => this.setState({ name: e.target.value })}
-        />
-        <input
-          placeholder="Author"
-          value={this.state.author}
-          onChange={e => this.setState({ author: e.target.value })}
-        />
-        <select
-          placeholder="Status"
-          value={this.state.status}
-          onChange={e => this.setState({ status: parseInt(e.target.value) })}
-        >
-          {this.props.statuses.map(status => (
-            <option value={status.id} key={status.id}>
-              {status.title}
-            </option>
-          ))}
-        </select>
+      <div style={{ maxWidth: 700, margin: "auto" }}>
+        <h1>Add todo</h1>
+        <FormGroup>
+          <Input
+            placeholder="Name"
+            value={this.state.name}
+            onChange={e => this.setState({ name: e.target.value })}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Input
+            placeholder="Author"
+            value={this.state.author}
+            onChange={e => this.setState({ author: e.target.value })}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Input
+            placeholder="Status"
+            type="select"
+            value={this.state.status}
+            onChange={e => this.setState({ status: parseInt(e.target.value) })}
+          >
+            {this.props.statuses.map(status => (
+              <option value={status.id} key={status.id}>
+                {status.title}
+              </option>
+            ))}
+          </Input>
+        </FormGroup>
 
         <button onClick={this.submit.bind(this)}>Save</button>
       </div>

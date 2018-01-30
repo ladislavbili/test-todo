@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import React, { Component } from "react";
-import { editTodo } from "../../redux/actions";
+import { editTodo, deleteTodo } from "../../redux/actions";
 import { connect } from "react-redux";
+import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 
 class TodoEdit extends Component {
   constructor(props) {
@@ -31,32 +32,48 @@ class TodoEdit extends Component {
     this.props.history.goBack();
   }
 
+  delete() {
+    this.props.deleteTodo(this.props.todo.id);
+    this.props.history.goBack();
+  }
+
   render() {
     return (
-      <div>
+      <div style={{ maxWidth: 700, margin: "auto" }}>
         <h1>Edit todo</h1>
-        <input
-          placeholder="Title"
-          value={this.state.title}
-          onChange={e => this.setState({ title: e.target.value })}
-        />
-        <input
-          placeholder="Author"
-          value={this.state.author}
-          onChange={e => this.setState({ author: e.target.value })}
-        />
-        <select
-          placeholder="Status"
-          value={this.state.status}
-          onChange={e => this.setState({ status: parseInt(e.target.value) })}
-        >
-          {this.props.statuses.map(status => (
-            <option value={status.id} key={status.id}>
-              {status.title}
-            </option>
-          ))}
-        </select>
+        <FormGroup>
+          <Label for="Title">Title</Label>
+          <Input
+            placeholder="Title"
+            value={this.state.title}
+            onChange={e => this.setState({ title: e.target.value })}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="Title">Author</Label>
+          <Input
+            placeholder="Author"
+            value={this.state.author}
+            onChange={e => this.setState({ author: e.target.value })}
+          />
+        </FormGroup>
+        <FormGroup>
+          <Label for="Title">Status</Label>
+          <Input
+            placeholder="Status"
+            type="select"
+            value={this.state.status}
+            onChange={e => this.setState({ status: parseInt(e.target.value) })}
+          >
+            {this.props.statuses.map(status => (
+              <option value={status.id} key={status.id}>
+                {status.title}
+              </option>
+            ))}
+          </Input>
+        </FormGroup>
         <button onClick={this.submit.bind(this)}>Save</button>
+        <button onClick={this.delete.bind(this)}>Delete</button>
       </div>
     );
   }
@@ -69,4 +86,4 @@ const mapStateToProps = ({ todoReducer, statusReducer }) => {
   return { todo, statuses };
 };
 
-export default connect(mapStateToProps, { editTodo })(TodoEdit);
+export default connect(mapStateToProps, { editTodo, deleteTodo })(TodoEdit);

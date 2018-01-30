@@ -19,7 +19,7 @@
   "todos": [
     {
       "id": 1,
-      "title": "task 1",
+      "title": "task 1ss",
       "author": "bsusta",
       "status": {
         "id": 1,
@@ -27,7 +27,7 @@
       }
     },
     {
-      "title": "novz so statusom",
+      "title": "novz so statusoma",
       "status": {
         "id": 2,
         "title": "OPEN"
@@ -36,7 +36,7 @@
       "id": 2
     },
     {
-      "title": "dffdsfddsfdf",
+      "title": "dffdsfddsfdfa",
       "status": {
         "id": 2,
         "title": "OPEN"
@@ -45,21 +45,21 @@
       "id": 3
     },
     {
-      "title": "sfdd",
+      "title": "sfddaa",
       "status": {
         "id": 1,
         "title": "NEW"
       },
-      "author": "df",
+      "author": "dfaaaaa",
       "id": 4
     },
     {
-      "title": "",
+      "title": "dsf",
       "status": {
         "id": 1,
         "title": "NEW"
       },
-      "author": "",
+      "author": "sdf",
       "id": 5
     }
   ],
