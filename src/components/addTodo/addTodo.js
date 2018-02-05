@@ -14,6 +14,8 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
+import Select from "react-select";
+import "react-select/dist/react-select.css";
 import { addTodo } from "../../redux/actions";
 
 class Add extends Component {
@@ -33,6 +35,14 @@ class Add extends Component {
       status: this.props.statuses[
         this.props.statuses.findIndex(status => status.id === this.state.status)
       ],
+      assign: this.props.assigned[
+        this.props.assigned.findIndex(assign => assign.id === this.state.assign)
+      ],
+      requester: this.props.requesters[
+        this.props.requesters.findIndex(
+          requester => requester.id === this.state.requester
+        )
+      ],
       author: this.state.author
     });
     this.props.history.goBack();
@@ -47,21 +57,24 @@ class Add extends Component {
     return (
       <div style={{ maxWidth: 700, margin: "auto" }}>
         <h1>Add todo</h1>
-        <FormGroup>
+        <FormGroup style={{ textAlign: "left" }}>
+          <Label>Task name</Label>
           <Input
             placeholder="Name"
             value={this.state.name}
             onChange={e => this.setState({ name: e.target.value })}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup style={{ textAlign: "left" }}>
+          <Label>Description</Label>
           <Input
-            placeholder="Author"
+            placeholder="Description"
             value={this.state.author}
             onChange={e => this.setState({ author: e.target.value })}
           />
         </FormGroup>
-        <FormGroup>
+        <FormGroup style={{ textAlign: "left" }}>
+          <Label>Status</Label>
           <Input
             placeholder="Status"
             type="select"
@@ -75,7 +88,43 @@ class Add extends Component {
             ))}
           </Input>
         </FormGroup>
-        <FormGroup>
+        <FormGroup style={{ textAlign: "left" }}>
+          <Label>Requester</Label>
+          <Input
+            placeholder="Requester"
+            type="select"
+            value={this.state.requester}
+            onChange={e =>
+              this.setState({ requester: parseInt(e.target.value) })
+            }
+          >
+            {this.props.requesters.map(requester => (
+              <option value={requester.id} key={requester.id}>
+                {requester.title}
+              </option>
+            ))}
+          </Input>
+        </FormGroup>
+        <FormGroup style={{ textAlign: "left" }}>
+          <Label>Assigned</Label>
+          <Input
+            placeholder="Assigned"
+            type="select"
+            value={this.state.assign}
+            onChange={e => this.setState({ assign: parseInt(e.target.value) })}
+          >
+            {this.props.assigned.map(assign => (
+              <option value={assign.id} key={assign.id}>
+                {assign.title}
+              </option>
+            ))}
+          </Input>
+        </FormGroup>
+        <FormGroup style={{ textAlign: "left" }}>
+          <Label>Due date</Label>
+        </FormGroup>
+        <FormGroup style={{ textAlign: "left" }}>
+          <Label>Label</Label>
           <ListGroup>
             {this.props.tags.map(tag => (
               <ListGroupItem
@@ -87,7 +136,7 @@ class Add extends Component {
             ))}
           </ListGroup>
         </FormGroup>
-        <FormGroup>
+        <FormGroup style={{ textAlign: "left" }}>
           <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <DropdownToggle caret>Dropdown</DropdownToggle>
             <DropdownMenu>
@@ -109,11 +158,17 @@ class Add extends Component {
   }
 }
 //all below is just redux storage
-const mapStateToProps = ({ statusReducer, tagReducer }) => {
+const mapStateToProps = ({
+  statusReducer,
+  tagReducer,
+  requesterReducer,
+  assignReducer
+}) => {
   const { statuses } = statusReducer;
   const { tags } = tagReducer;
-
-  return { statuses, tags };
+  const { assigned } = assignReducer;
+  const { requesters } = requesterReducer;
+  return { statuses, tags, assigned, requesters };
 };
 
 export default connect(mapStateToProps, { addTodo })(Add);

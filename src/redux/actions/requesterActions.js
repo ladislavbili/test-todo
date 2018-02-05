@@ -1,14 +1,14 @@
-import { START_LOADING_STATUSES, SET_STATUSES } from "../types";
+import { START_LOADING_REQUESTERS, SET_REQUESTERS } from "../types";
 
-const URL = "http://localhost:3001/statuses";
+const URL = "http://localhost:3001/requesters";
 
-export const startLoadingStatuses = () => {
+export const startLoadingRequesters = () => {
   return dispatch => {
-    dispatch({ type: START_LOADING_STATUSES });
+    dispatch({ type: START_LOADING_REQUESTERS });
   };
 };
 
-export const getStatuses = () => {
+export const getRequesters = () => {
   return dispatch => {
     fetch(URL, { method: "GET" })
       .then(response => {
@@ -16,7 +16,7 @@ export const getStatuses = () => {
           response
             .json()
             .then(decodedResponse => {
-              dispatch({ type: SET_STATUSES, statuses: decodedResponse });
+              dispatch({ type: SET_REQUESTERS, requesters: decodedResponse });
             })
             .catch(error => console.log(error));
         } else {

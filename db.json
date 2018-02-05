@@ -18,21 +18,34 @@
   },
   "todos": [
     {
-      "title": "test",
+      "title": "sdf",
+      "status": {
+        "id": 2,
+        "title": "OPEN"
+      },
+      "assign": {
+        "id": 2,
+        "title": "jmantova"
+      },
+      "author": "sdf",
+      "id": 1
+    },
+    {
+      "title": "asd",
       "status": {
         "id": 1,
         "title": "NEW"
       },
-      "author": "test",
+      "author": "asd",
       "id": 2
     },
     {
-      "title": "wewe",
+      "title": "das",
       "status": {
-        "id": 1,
-        "title": "NEW"
+        "id": 2,
+        "title": "OPEN"
       },
-      "author": "weqwe",
+      "author": "sd",
       "id": 3
     }
   ],
@@ -44,6 +57,34 @@
     {
       "id": 2,
       "title": "OPEN"
+    },
+    {
+      "id": 2,
+      "title": "PENDING"
+    },
+    {
+      "id": 2,
+      "title": "CLOSED"
+    }
+  ],
+  "requesters": [
+    {
+      "id": 1,
+      "title": "bsusta"
+    },
+    {
+      "id": 2,
+      "title": "jmantova"
+    }
+  ],
+  "assigned": [
+    {
+      "id": 1,
+      "title": "bsusta"
+    },
+    {
+      "id": 2,
+      "title": "jmantova"
     }
   ],
   "tags": [

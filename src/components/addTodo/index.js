@@ -5,7 +5,11 @@ import {
   getStatuses,
   startLoadingStatuses,
   getTags,
-  startLoadingTags
+  startLoadingTags,
+  getAssigned,
+  startLoadingAssigned,
+  getRequesters,
+  startLoadingRequesters
 } from "../../redux/actions";
 import TodoAdd from "./addTodo";
 
@@ -14,6 +18,8 @@ class TodoAddLoader extends Component {
     this.props.startLoadingStatuses(); // first it sets, that unit hasnt been loaded
     this.props.getStatuses();
     this.props.getTags();
+    this.props.getRequesters();
+    this.props.getAssigned();
   }
   render() {
     if (!this.props.statusesLoaded) {
@@ -25,15 +31,26 @@ class TodoAddLoader extends Component {
 }
 
 //All below is redux information storage
-const mapStateToProps = ({ statusReducer, tagReducer }) => {
+const mapStateToProps = ({
+  statusReducer,
+  tagReducer,
+  requesterReducer,
+  assignReducer
+}) => {
   const { statusesLoaded } = statusReducer;
   const { tagLoaded } = tagReducer;
-  return { statusesLoaded, tagLoaded };
+  const { assignLoaded } = assignReducer;
+  const { requesterLoaded } = requesterReducer;
+  return { statusesLoaded, tagLoaded, requesterLoaded, assignLoaded };
 };
 
 export default connect(mapStateToProps, {
   getStatuses,
   startLoadingStatuses,
   getTags,
-  startLoadingTags
+  startLoadingTags,
+  getAssigned,
+  startLoadingAssigned,
+  getRequesters,
+  startLoadingRequesters
 })(TodoAddLoader);

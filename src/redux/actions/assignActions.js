@@ -1,14 +1,14 @@
-import { START_LOADING_STATUSES, SET_STATUSES } from "../types";
+import { START_LOADING_ASSIGNED, SET_ASSIGNED } from "../types";
 
-const URL = "http://localhost:3001/statuses";
+const URL = "http://localhost:3001/assigned";
 
-export const startLoadingStatuses = () => {
+export const startLoadingAssigned = () => {
   return dispatch => {
-    dispatch({ type: START_LOADING_STATUSES });
+    dispatch({ type: START_LOADING_ASSIGNED });
   };
 };
 
-export const getStatuses = () => {
+export const getAssigned = () => {
   return dispatch => {
     fetch(URL, { method: "GET" })
       .then(response => {
@@ -16,8 +16,9 @@ export const getStatuses = () => {
           response
             .json()
             .then(decodedResponse => {
-              dispatch({ type: SET_STATUSES, statuses: decodedResponse });
+              dispatch({ type: SET_ASSIGNED, assigned: decodedResponse });
             })
+
             .catch(error => console.log(error));
         } else {
           throw new Error("Something went wrong ...");

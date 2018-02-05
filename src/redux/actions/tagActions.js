@@ -1,6 +1,6 @@
 import { START_LOADING_TAGS, SET_TAGS } from "../types";
 
-const URL = "http://localhost:3000/tags";
+const URL = "http://localhost:3001/tags";
 
 export const startLoadingTags = () => {
   return dispatch => {

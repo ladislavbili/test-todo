@@ -8,7 +8,7 @@ import {
   DELETE_TODO
 } from "../types";
 
-const URL = "http://localhost:3000/todos";
+const URL = "http://localhost:3001/todos";
 
 export const startLoadingTodos = () => {
   return dispatch => {
