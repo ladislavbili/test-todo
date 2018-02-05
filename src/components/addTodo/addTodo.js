@@ -26,7 +26,11 @@ class Add extends Component {
       name: "",
       author: "",
       status: this.props.statuses[0].id,
-      dropdownOpen: false
+      dropdownOpen: false,
+      assignedOptions: [
+        { value: "one", label: "One" },
+        { value: "two", label: "Two" }
+      ]
     };
   }
   submit() {
@@ -88,22 +92,23 @@ class Add extends Component {
             ))}
           </Input>
         </FormGroup>
+
         <FormGroup style={{ textAlign: "left" }}>
           <Label>Requester</Label>
-          <Input
+          <Select
             placeholder="Requester"
-            type="select"
             value={this.state.requester}
             onChange={e =>
               this.setState({ requester: parseInt(e.target.value) })
             }
+            options={this.state.assignedOptions}
           >
             {this.props.requesters.map(requester => (
               <option value={requester.id} key={requester.id}>
                 {requester.title}
               </option>
             ))}
-          </Input>
+          </Select>
         </FormGroup>
         <FormGroup style={{ textAlign: "left" }}>
           <Label>Assigned</Label>
@@ -168,6 +173,7 @@ const mapStateToProps = ({
   const { tags } = tagReducer;
   const { assigned } = assignReducer;
   const { requesters } = requesterReducer;
+
   return { statuses, tags, assigned, requesters };
 };
 
