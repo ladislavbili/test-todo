@@ -6,7 +6,7 @@ import "../../App.css";
 class TodoList extends Component {
   render() {
     const todos = this.props.todos;
-
+    console.log(todos);
     return (
       <div>
         <Table>
@@ -14,7 +14,8 @@ class TodoList extends Component {
             <tr>
               <th>Id</th>
               <th>Task name</th>
-              <th>Author</th>
+              <th>Requester</th>
+              <th>Assigned</th>
               <th>Status</th>
             </tr>
           </thead>
@@ -27,7 +28,8 @@ class TodoList extends Component {
               >
                 <th scope="row">{todo.id}</th>
                 <td> {todo.title}</td>
-                <td>{todo.author}</td>
+                <td>{todo.requester.label}</td>
+                <td>{todo.assign.label}</td>
                 <td>{todo.status.title}</td>
               </tr>
             ))}

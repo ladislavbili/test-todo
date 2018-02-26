@@ -18,62 +18,42 @@
   },
   "todos": [
     {
-      "title": "dasd",
-      "status": {
-        "id": 3,
-        "title": "PENDING"
-      },
-      "assign": {
-        "id": 2,
-        "title": "jmantova"
-      },
-      "author": "sdf",
-      "id": 1
-    },
-    {
-      "title": "asd",
+      "title": "test 5",
       "status": {
         "id": 1,
         "title": "NEW"
       },
-      "author": "asd",
-      "id": 2
-    },
-    {
-      "title": "dasa",
-      "status": {
-        "id": 4,
-        "title": "CLOSED"
-      },
-      "author": "sd",
-      "id": 3
-    },
-    {
-      "title": "",
-      "status": {
-        "id": 2,
-        "title": "OPEN"
-      },
       "assign": {
-        "id": 2,
-        "title": "jmantova"
-      },
-      "author": "",
-      "id": 4
-    },
-    {
-      "title": "",
-      "status": {
-        "id": 1,
-        "title": "NEW"
-      },
-      "requester": {
         "id": 2,
         "value": 2,
         "label": "jmantova"
       },
+      "requester": {
+        "id": 1,
+        "value": 1,
+        "label": "bsusta"
+      },
       "author": "",
-      "id": 5
+      "id": 6
+    },
+    {
+      "title": "test 6",
+      "status": {
+        "id": 1,
+        "title": "NEW"
+      },
+      "assign": {
+        "id": 2,
+        "value": 2,
+        "label": "jmantova"
+      },
+      "requester": {
+        "id": 1,
+        "value": 1,
+        "label": "bsusta"
+      },
+      "author": "",
+      "id": 7
     }
   ],
   "statuses": [
