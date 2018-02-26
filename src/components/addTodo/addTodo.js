@@ -27,6 +27,7 @@ class Add extends Component {
       author: "",
       status: this.props.statuses[0].id,
       requester: "",
+      assign: "",
       dropdownOpen: false
     };
   }
@@ -102,18 +103,12 @@ class Add extends Component {
         </FormGroup>
         <FormGroup style={{ textAlign: "left" }}>
           <Label>Assigned</Label>
-          <Input
+          <Select
             placeholder="Assigned"
-            type="select"
             value={this.state.assign}
-            onChange={this.updateValue}
-          >
-            {this.props.assigned.map(assign => (
-              <option value={assign.id} key={assign.id}>
-                {assign.title}
-              </option>
-            ))}
-          </Input>
+            options={this.props.assigned}
+            onChange={e => this.setState({ assign: e.value })}
+          />
         </FormGroup>
         <FormGroup style={{ textAlign: "left" }}>
           <Label>Due date</Label>
