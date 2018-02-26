@@ -18,10 +18,10 @@
   },
   "todos": [
     {
-      "title": "sdf",
+      "title": "dasd",
       "status": {
-        "id": 2,
-        "title": "OPEN"
+        "id": 3,
+        "title": "PENDING"
       },
       "assign": {
         "id": 2,
@@ -40,13 +40,40 @@
       "id": 2
     },
     {
-      "title": "das",
+      "title": "dasa",
+      "status": {
+        "id": 4,
+        "title": "CLOSED"
+      },
+      "author": "sd",
+      "id": 3
+    },
+    {
+      "title": "",
       "status": {
         "id": 2,
         "title": "OPEN"
       },
-      "author": "sd",
-      "id": 3
+      "assign": {
+        "id": 2,
+        "title": "jmantova"
+      },
+      "author": "",
+      "id": 4
+    },
+    {
+      "title": "",
+      "status": {
+        "id": 1,
+        "title": "NEW"
+      },
+      "requester": {
+        "id": 2,
+        "value": 2,
+        "label": "jmantova"
+      },
+      "author": "",
+      "id": 5
     }
   ],
   "statuses": [
@@ -59,32 +86,36 @@
       "title": "OPEN"
     },
     {
-      "id": 2,
+      "id": 3,
       "title": "PENDING"
     },
     {
-      "id": 2,
+      "id": 4,
       "title": "CLOSED"
     }
   ],
   "requesters": [
     {
       "id": 1,
-      "title": "bsusta"
+      "value": 1,
+      "label": "bsusta"
     },
     {
       "id": 2,
-      "title": "jmantova"
+      "value": 2,
+      "label": "jmantova"
     }
   ],
   "assigned": [
     {
       "id": 1,
-      "title": "bsusta"
+      "value": 1,
+      "label": "bsusta"
     },
     {
       "id": 2,
-      "title": "jmantova"
+      "value": 2,
+      "label": "jmantova"
     }
   ],
   "tags": [

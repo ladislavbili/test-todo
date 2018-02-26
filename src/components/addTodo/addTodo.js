@@ -26,11 +26,8 @@ class Add extends Component {
       name: "",
       author: "",
       status: this.props.statuses[0].id,
-      dropdownOpen: false,
-      assignedOptions: [
-        { value: "one", label: "One" },
-        { value: "two", label: "Two" }
-      ]
+      requester: "",
+      dropdownOpen: false
     };
   }
   submit() {
@@ -58,6 +55,7 @@ class Add extends Component {
   }
 
   render() {
+    console.log(this.state.requester);
     return (
       <div style={{ maxWidth: 700, margin: "auto" }}>
         <h1>Add todo</h1>
@@ -98,17 +96,9 @@ class Add extends Component {
           <Select
             placeholder="Requester"
             value={this.state.requester}
-            onChange={e =>
-              this.setState({ requester: parseInt(e.target.value) })
-            }
-            options={this.state.assignedOptions}
-          >
-            {this.props.requesters.map(requester => (
-              <option value={requester.id} key={requester.id}>
-                {requester.title}
-              </option>
-            ))}
-          </Select>
+            options={this.props.requesters}
+            onChange={e => this.setState({ requester: e.value })}
+          />
         </FormGroup>
         <FormGroup style={{ textAlign: "left" }}>
           <Label>Assigned</Label>
@@ -116,7 +106,7 @@ class Add extends Component {
             placeholder="Assigned"
             type="select"
             value={this.state.assign}
-            onChange={e => this.setState({ assign: parseInt(e.target.value) })}
+            onChange={this.updateValue}
           >
             {this.props.assigned.map(assign => (
               <option value={assign.id} key={assign.id}>
