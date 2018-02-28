@@ -56,7 +56,6 @@ class Add extends Component {
   }
 
   render() {
-    console.log(this.state.requester);
     return (
       <div style={{ maxWidth: 700, margin: "auto" }}>
         <h1>Add todo</h1>
