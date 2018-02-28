@@ -1,6 +1,6 @@
 import { START_LOADING_REQUESTERS, SET_REQUESTERS } from "../types";
 
-const URL = "http://localhost:3001/requesters";
+const URL = "http://localhost:3001/users";
 
 export const startLoadingRequesters = () => {
   return dispatch => {

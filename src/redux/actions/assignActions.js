@@ -1,6 +1,6 @@
 import { START_LOADING_ASSIGNED, SET_ASSIGNED } from "../types";
 
-const URL = "http://localhost:3001/assigned";
+const URL = "http://localhost:3001/users";
 
 export const startLoadingAssigned = () => {
   return dispatch => {
