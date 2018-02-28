@@ -10,7 +10,7 @@ for (var i = 1; i <= 20; i++) {
   });
 }
 
-for (var i = 1; i <= 20; i++) {
+for (var i = 1; i <= 5; i++) {
   db.tags.push({
     id: i,
     value: faker.lorem.word(),
