@@ -39,6 +39,7 @@ class TodoEdit extends Component {
   }
 
   render() {
+    console.log(this.props.todo);
     return (
       <div style={{ maxWidth: 700, margin: "auto" }}>
         <h1>Edit todo</h1>
@@ -93,7 +94,6 @@ const mapStateToProps = ({ todoReducer, statusReducer, tagReducer }) => {
   const { todo } = todoReducer;
   const { statuses } = statusReducer;
   const { tags } = tagReducer;
-  console.log(tags);
   return { todo, statuses, tags };
 };
 
