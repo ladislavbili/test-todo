@@ -18,30 +18,23 @@ class TodoEdit extends Component {
 
   save(e) {
     e.preventDefault();
-    console.log(this.props.statuses);
-    console.log(e.target.elements.status.value);
+
     const status = this.props.statuses.find(
       status => status.id == e.target.elements.status.value
     );
+    const assign = this.props.assigned.find(
+      assign => assign.id == this.state.assign
+    );
+    const requester = this.props.requesters.find(
+      requester => requester.id == this.state.requester
+    );
+    console.log(assign);
     this.props.editTodo(
       {
         title: e.target.elements.title.value,
         status,
-        assign: this.props.assigned[
-          this.props.assigned.findIndex(
-            assign => assign.id === this.state.assign
-          )
-        ],
-        requester: this.props.requesters[
-          this.props.requesters.find(
-            requester => requester.id == this.state.requester
-          )
-        ],
-        assign: this.props.assigned[
-          this.props.assigned.findIndex(
-            assign => assign.id === this.state.assign
-          )
-        ]
+        assign,
+        requester
       },
       this.props.todo.id
     );
