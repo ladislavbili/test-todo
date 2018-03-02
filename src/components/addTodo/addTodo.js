@@ -109,6 +109,7 @@ class Add extends Component {
             onChange={e => this.setState({ assign: e.value })}
           />
         </FormGroup>
+        {/*
         <FormGroup style={{ textAlign: "left" }}>
           <Label>Due date</Label>
         </FormGroup>
@@ -140,6 +141,7 @@ class Add extends Component {
             </DropdownMenu>
           </Dropdown>
         </FormGroup>
+            */}
 
         <button onClick={this.submit.bind(this)}>Save</button>
       </div>
