@@ -41,8 +41,8 @@ class Add extends Component {
         this.props.assigned.findIndex(assign => assign.id === this.state.assign)
       ],
       requester: this.props.requesters[
-        this.props.requesters.findIndex(
-          requester => requester.id === this.state.requester
+        this.props.requesters.find(
+          requester => requester.id == this.state.requester
         )
       ],
       author: this.state.author
