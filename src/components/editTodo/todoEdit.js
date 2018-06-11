@@ -4,7 +4,6 @@ import { editTodo, deleteTodo } from "../../redux/actions";
 import { connect } from "react-redux";
 import { Button, Form, FormGroup, Label, Input, FormText } from "reactstrap";
 import Select from "react-select";
-import "react-select/dist/react-select.css";
 
 class TodoEdit extends Component {
   constructor(props) {

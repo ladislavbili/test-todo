@@ -15,7 +15,6 @@ import {
   DropdownItem
 } from "reactstrap";
 import Select from "react-select";
-import "react-select/dist/react-select.css";
 import { addTodo } from "../../redux/actions";
 
 class Add extends Component {
